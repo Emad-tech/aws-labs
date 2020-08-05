@@ -37,3 +37,31 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-c
 ```
 
 9) We have configured the cloudwatch metrics now.
+
+
+ **To add more log-files later**
+
+1) edite and add it to the config.json 
+
+
+```console
+sudo vim /opt/aws/amazon-cloudwatch-agent/bin/config.json
+```
+
+2) parse your config 
+
+
+```console
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+``` 
+
+3) Restart service of amazon-cloudwatch-agent
+ **on Ubuntu**
+
+```console
+sudo systemctl restart amazon-cloudwatch-agent.service
+```
+
+
+
+
